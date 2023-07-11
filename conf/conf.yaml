@@ -1,0 +1,42 @@
+Version: dev-build
+Logging:
+  File: ~/p2p-proxy.log
+  Format: console
+  Level:
+    all: info
+ServiceTag: p2p-proxy/0.0.1
+P2P:
+  Identity:
+    PrivKey: CAASqQkwggSlAgEAAoIBAQDw7zruEDSke9XcCILvWDkP+PJGBVIFu7gyMTHeAPaO9HFA9h/fbVSsNfNDsNM1v0Oos7fE86Kb/7TqJSGPhAOaN2L0y22FRc/RR8RgJs80o0qRNbqN0p8PGDWIEEtHh/vCeEY5FgqJK/AV35g/osj1/LUAezobqQU+R4j8vLyBnxqGomlBEEX1InV/faS/mcYh2hzR7EApOV62QTTw5cSFHpTjQwaFAhlECLJOlD4CgDt1Y4n8U/erV+m/iy5DAqkcPorfTblWDznzBJqIJVhxpGnStGfdnDFTNjCR9pMasg84P59CcFCkeT3iYSNLXRFSLCvfNQEssD3PeovoWULdAgMBAAECggEBALgO6kQH2U920w++6NgT27PaCKt5UQnUOIkPj/r7XWAkWYi4/exfx3mv1WF26kN7FCMC+HbbcPQfyoO9TgAnZ+EeQtijt81CYdqNKvYRb+XUgRihpRzHNIABjJOfbwL8XVZZL7xYnD/icw0ivVqP71oMbfIqMWAEJV9IotwBCzkxaSCRHtff9/RrymhaMEDFH7AgTHArLeABZ/NOyTkz3tMc+LpkUU/OBuDDWcKwGsOBpkm3hRpsjfsHUtea9C/sCyZuW1Q+B2lHUq6Z6foMG2B81wxKgBwTvV4DpoN4Vq58PQJKxTQ3LJGypfe1hP7udtytyCYWn5DMS3M2PxzsObkCgYEA/9SclHEfDdlGpklRXo0fcSTCmTfO3kvWLD1buNJof2jby6OqUedUZ9dftqC/Lb17wq1pNXycPupdFWiLMwEa/XyJ56/iA/x/xjACIFaMq/5AYh60vrOxyxUd7sqZi4puBq+6MAj33TUXuBYU5QqscXVWTFWjNuqbSJSv+pUJzrMCgYEA8RgXm6QbedfAXhM513hOvopKClLT6jVrvyowg5MDxM2+K2+yVawnAa2RB6ytaHHJd0f2p5GtWZaQV3BXnQlE+LVzHhL0FJ+bruwl2Qtze5iAaTedtZYCsK65Z0iptQLRfSdRyHIXvCF9XGOcnBF8tz6rSSrmGV+QyhOLJClqcC8CgYBe8Ib/K4/LsuNeGH1i6lpNwceZ1rUll90uY8LjLupqxf4zb1RousF/G9VAUB1CmzwPfg06NTlCu/S5Wie2UOW0RoBjA8mLkyvT38MaPyRLO7qm7yBCWStU40xNbtBWkZPNVW9yHhHl/KsFvOQaL8DZBiN1hp5gZeYkpFE+XArcswKBgQDuvz/ppep7jxb1Ui6uXHoGICXP8VPfk8U+SkY+lWBfDKssknDUfCUoeTuskOgsDLpIP+BW8mDq3bnUjPCGFv7RF8aG2pgQsDnYUAvu0nMqyssm5qdrgcDqPCxnxkIgeUkAmeZYC/vLFpLw4cfdmUeaoxm13CB+se9M3WulhMndiwKBgQCMB0tyas8uhbEwaNDEglBDENj4T4e0dOOns866tdL+lsl5tohDGt5T3OywLrDZogawfvJ5vgxum4VIOLDAubrsxdNv+p2bpZexZUFyzFXgl52vkAKUV65lVmWKyuh41ze40lPxWXGeFRAA07RaH9JFrSf0zro9rDwAqxX/GkVIcA==
+    ObservedAddrActivationThresh: 0
+  Addrs:
+  - /ip4/0.0.0.0/tcp/8888
+  BootstrapPeers: 
+  - /ip4/127.0.0.1/tcp/12000/p2p/12D3KooWBz5E6Vr7NrmLZAAq6ZTFXCiwv4QoVJFkvbMVnCFBqmqL
+  BandWidthReporter:
+    Enable: false
+    Interval: 0s
+  EnableAutoRelay: true
+  AutoNATService: false
+  DHT:
+    Client: false
+Proxy:
+  Protocols:
+  - Protocol: /p2p-proxy/http/0.0.1
+    Config: {}
+  - Protocol: /p2p-proxy/shadowsocks/0.0.1
+    Config: {}
+  - Protocol: /p2p-proxy/socks5/0.0.1
+    Config: {}
+  ServiceAdvertiseInterval: 1h0m0s
+Endpoint:
+  ProxyProtocols:
+  - Protocol: /p2p-proxy/http/0.0.1
+    Listen: 127.0.0.1:8010
+  - Protocol: /p2p-proxy/shadowsocks/0.0.1
+    Listen: 127.0.0.1:8020
+  - Protocol: /p2p-proxy/socks5/0.0.1
+    Listen: 127.0.0.1:8030
+  ServiceDiscoveryInterval: 1h0m0s
+  Balancer: round_robin
+Interactive: false
